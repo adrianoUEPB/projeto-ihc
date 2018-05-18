@@ -1,14 +1,22 @@
-.header {
-  height: 4rem;
-  background-color: #45722f;
-  box-shadow: 0 1px 5px gray;
-}
-
 img {
   width: 3rem;
 }
 
-.header-link {
-  margin-left: .5rem;
-  font-size: 1.2rem;
+.bg-success {
+  background: #45722f !important;
+  box-shadow: 0 1px 5px gray;
 }
+
+.dropdown-menu {
+  box-shadow: 0 1px 5px gray;
+}
+
+.dropdown-item {
+  color: #45722f;
+}
+
+.dropdown-item:active {
+  background-color: #f3f9ed;
+  font-weight: bolder;
+}
+
