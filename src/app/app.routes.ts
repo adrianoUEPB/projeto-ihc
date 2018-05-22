@@ -5,6 +5,7 @@ import { ProtocoloComponent } from './protocolo/protocolo.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { LoginComponent } from './security/login/login.component';
 import { ProcessosComponent } from './processos/processos.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export const ROUTES: Routes = [
   { path: 'home', component: HomeComponent },
@@ -12,5 +13,6 @@ export const ROUTES: Routes = [
   { path: 'processos', component: ProcessosComponent},
   { path: 'protocolo', component: ProtocoloComponent },
   { path: 'sobre', component: SobreComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: '**', component: NotFoundComponent }
 ];
