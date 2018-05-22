@@ -9,10 +9,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SobreComponent } from './sobre/sobre.component';
-import { ProcessosComponent } from './processos/processos.component';
 import { ProtocoloComponent } from './protocolo/protocolo.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './security/login/login.component';
+import { ProcessosComponent } from './processos/processos.component';
 
 
 
