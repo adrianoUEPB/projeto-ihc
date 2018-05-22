@@ -13,6 +13,7 @@ import { ProcessosComponent } from './processos/processos.component';
 import { ProtocoloComponent } from './protocolo/protocolo.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { InputContentComponent } from '../components/input-content/input-content.component';
 
 
 
@@ -26,7 +27,8 @@ import { LoginComponent } from './login/login.component';
     ProcessosComponent,
     ProtocoloComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    InputContentComponent
   ],
   imports: [
     BrowserModule,
