@@ -3,6 +3,13 @@ body {
   background: #f3f9ed !important;
 }
 
+.logo-text {
+  text-align: center;
+  font-size: 2rem;
+  padding: 0;
+} 
+
+
 .content {
   background: white;
   padding: 1.875rem;
@@ -15,19 +22,20 @@ body {
 }
 
 /*Jumbotrons*/
-
-.jumbotron {
+.jumbotron,
+.content-items {
+  border-radius: 0;
   background-color: #e0eecf;
   text-align:center;
   margin: 0;
 }
 
-.jumbotron p {
+.content-items p {
   font-size: 1.2rem;
   margin-bottom: 1.3rem;
 }
 
-.jumbotron h2 {
+.content-items h2 {
   font-size: 2.5rem;
   margin-bottom: 3.75rem;
   font-weight: bolder;
