@@ -1,7 +1,8 @@
 <div class="form-group">
-  <label class="control-label sr-only">{{ label }}</label>
-
-  <ng-content></ng-content>
-
+  <label class="control-label" for="input">{{ label }}</label>
   
+  <ng-content></ng-content>
+  
+  <span class="help-block" *ngIf="showTip && hasSuccess()"><i class="fa fa-check"></i> Ok</span>
+  <span class="help-block" *ngIf="showTip && hasError()"><i class="fa fa-remove"></i> {{ errorMessage}}</span>
 </div>
