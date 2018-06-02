@@ -2,6 +2,10 @@ img {
   width: 3rem;
 }
 
+a {
+  font-weight: bolder;
+}
+
 .bg-success {
   background: #45722f !important;
   box-shadow: 0 1px 5px gray;

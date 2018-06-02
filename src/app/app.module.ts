@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+// import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { ROUTES } from './app.routes';
 
@@ -15,6 +16,8 @@ import { InputContentComponent } from '../components/input-content/input-content
 import { LoginComponent } from './security/login/login.component';
 import { ProcessosComponent } from './processos/processos.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormNovoComponent } from './processos/form-novo/form-novo.component';
 
 
 
@@ -30,10 +33,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HomeComponent,
     LoginComponent,
     InputContentComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FormNovoComponent
   ],
   imports: [
+    // AngularFontAwesomeModule,
     BrowserModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [],

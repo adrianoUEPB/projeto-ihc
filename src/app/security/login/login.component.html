@@ -5,18 +5,16 @@
         <div class="logo-text">
           <b>SPM</b> | Login
         </div>
-        <form class="form-group">
+        <form [formGroup]="loginForm" class="form-group">
           <label for="">Usuário</label>
-          <input class="form-control form-control-sm" type="email">
+          <input formControlName="usuario" class="form-control form-control-sm" type="email">
           <label for="">Senha</label>
-          <input class="form-control form-control-sm" type="text">
+          <input formControlName="password" class="form-control form-control-sm" type="text">
         </form>
         <div class="float-right">
           <button class="btn btn-outline-success">Acessar</button>
         </div>
-    
       </div>
-
   </section>
   </div>
 </div>

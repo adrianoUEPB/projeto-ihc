@@ -54,8 +54,11 @@ body {
 /* Custom Bootstrap */
 
 .btn-outline-success {
-  color: #45722f !important;
+  color: #462f72 !important;
   border-color: #45722f !important;
+}
+.btn-outline-success:click {
+  color: #29471a !important;
 }
 
 .btn-outline-success:focus {
@@ -65,13 +68,22 @@ body {
 
 .btn-outline-success:hover {
   color: #fff !important;
-  background: #45722f !important;
+  background: #2f3372 !important;
 }
 
 /* .btn-outline-success:focus, */
 .form-control:focus{
-  border-color: #45722f !important;
+  border-color: #2f3b72 !important;
   box-shadow: 0 0 0.08125rem 0.1875rem #bbd69f !important;
   -webkit-box-shadow: 0 0 0.08125rem 0.1875rem #bbd69f !important;
 }
 /* .has-error .form-control:focus{box-shadow: none; -webkit-box-shadow: none;} */
+
+.mouse-in-icon:hover {
+  color: #73a859;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+}
