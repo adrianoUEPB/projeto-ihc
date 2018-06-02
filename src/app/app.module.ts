@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+<<<<<<< HEAD
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
+=======
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+>>>>>>> ac04a9311e9394dd40bb3b983528aefe2b07f01f
 
 import { ROUTES } from './app.routes';
 
@@ -37,7 +41,12 @@ import { FormNovoComponent } from './processos/form-novo/form-novo.component';
     FormNovoComponent
   ],
   imports: [
+<<<<<<< HEAD
     // AngularFontAwesomeModule,
+=======
+    FormsModule,
+    ReactiveFormsModule,
+>>>>>>> ac04a9311e9394dd40bb3b983528aefe2b07f01f
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)

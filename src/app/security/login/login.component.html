@@ -5,13 +5,22 @@
         <div class="logo-text">
           <b>SPM</b> | Login
         </div>
+<<<<<<< HEAD
         <form [formGroup]="loginForm" class="form-group">
           <label for="">Usuário</label>
           <input formControlName="usuario" class="form-control form-control-sm" type="email">
           <label for="">Senha</label>
           <input formControlName="password" class="form-control form-control-sm" type="text">
+=======
+        <form [formGroup]="loginForm" novalidate>
+          <div class="form-group"></div>
+          <label for="">Usuário</label>
+          <input formControlName="user" class="form-control form-control-sm" type="email">
+          <label for="">Senha</label>
+          <input formControlName="senha" class="form-control form-control-sm" type="text">
+>>>>>>> ac04a9311e9394dd40bb3b983528aefe2b07f01f
         </form>
-        <div class="float-right">
+        <div class="float-right mt-3">
           <button class="btn btn-outline-success">Acessar</button>
         </div>
       </div>
