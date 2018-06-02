@@ -72,15 +72,9 @@ body {
 
 /* .btn-outline-success:focus, */
 .form-control:focus{
-<<<<<<< HEAD
   border-color: #2f3b72 !important;
   box-shadow: 0 0 0.08125rem 0.1875rem #bbd69f !important;
   -webkit-box-shadow: 0 0 0.08125rem 0.1875rem #bbd69f !important;
-=======
-  border-color: #45722f !important;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
->>>>>>> ac04a9311e9394dd40bb3b983528aefe2b07f01f
 }
 /* .has-error .form-control:focus{box-shadow: none; -webkit-box-shadow: none;} */
 
