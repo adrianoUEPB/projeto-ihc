@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormNovoComponent implements OnInit {
 
-  constructor() { }
+  novoForm: FormGroup;
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
   }
