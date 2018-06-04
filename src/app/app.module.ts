@@ -18,6 +18,8 @@ import { ProcessosComponent } from './processos/processos.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormNovoComponent } from './processos/form-novo/form-novo.component';
+import { ListarProcessosComponent } from './processos/listar-processos/listar-processos.component';
+import { FormBuscarComponent } from './processos/form-buscar/form-buscar.component';
 
 
 
@@ -34,7 +36,9 @@ import { FormNovoComponent } from './processos/form-novo/form-novo.component';
     LoginComponent,
     InputContentComponent,
     NotFoundComponent,
-    FormNovoComponent
+    FormNovoComponent,
+    ListarProcessosComponent,
+    FormBuscarComponent
   ],
   imports: [
     // AngularFontAwesomeModule,

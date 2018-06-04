@@ -11,11 +11,11 @@
             </div>
             <div class="col-md-4 mouse-in-icon">
               Listar<br>
-              <i class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
+              <i [routerLink]="['/processos/lista']" class="fa fa-file-text-o fa-3x" aria-hidden="true"></i>
             </div>
             <div class="col-md-4 mouse-in-icon">
               Buscar<br>
-              <i class="fa fa-search fa-3x" aria-hidden="true"></i>
+              <i [routerLink]="['/processos/buscar']" class="fa fa-search fa-3x" aria-hidden="true"></i>
             </div>
           </div>
         </div>
@@ -23,5 +23,3 @@
     </div>
   </div>
 </div>
-
-<router-outlet></router-outlet>

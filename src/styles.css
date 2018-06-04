@@ -53,28 +53,27 @@ body {
 /* Custom Bootstrap */
 
 .btn-outline-success {
-  color: #462f72 !important;
-  border-color: #45722f !important;
+  color: #58913b !important;
+  border-color: #58913b !important;
 }
+
 .btn-outline-success:click {
   color: #29471a !important;
 }
 
 .btn-outline-success:focus {
-  box-shadow: 0 0 0.08125rem 0.1875rem #9ab182 !important;
-  -webkit-box-shadow: 0 0 0.08125rem 0.1875rem #9ab182 !important;
+  box-shadow: none;
 }
 
 .btn-outline-success:hover {
   color: #fff !important;
-  background: #2f3372 !important;
+  background: #45722f !important;
 }
 
 /* .btn-outline-success:focus, */
 .form-control:focus{
-  border-color: #2f3b72 !important;
-  box-shadow: 0 0 0.08125rem 0.1875rem #bbd69f !important;
-  -webkit-box-shadow: 0 0 0.08125rem 0.1875rem #bbd69f !important;
+  border-color: #29471a !important;
+  box-shadow: none;
 }
 /* .has-error .form-control:focus{box-shadow: none; -webkit-box-shadow: none;} */
 
@@ -85,4 +84,8 @@ body {
 textarea {
   resize: none;
   width: 100%;
+}
+
+.table-hover tbody tr:hover {
+  background: #f3f9ed !important;
 }
