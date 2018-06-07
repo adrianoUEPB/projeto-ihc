@@ -1,0 +1,80 @@
+<div class="content">
+    <div class="col-md-12">
+      <div class="text-center mb-5">
+        <h1><i class="fa fa-users" aria-hidden="true"></i> Servidores</h1>
+      </div>
+      <div class="row p-3">
+        <div class="ml-auto">
+            <i class="fa fa-filter clique" (click)="showFilter()" aria-hidden="true"> Ativar Filtro</i>
+        </div>
+  
+      </div>
+      
+      <div *ngIf="filtrar">
+        <form [formGroup]="formFilter">
+          <div class="form-group">
+            <div class="col-md-10">
+              <div class="row">
+  
+                <div class="col-md-6 pl-0">
+                  <label>Termo de Busca</label> 
+                  <input type="text" class="form-control form-control-sm" >
+                </div>
+                <div class="col-md-4">
+                  <label>Buscar por:</label> 
+                  <select class="form-control form-control-sm custom-select" id="">
+                    <option value="">Contribuinte</option>
+                    <option value="">CPF/CNPJ</option>
+                    <option value="">Assunto</option>
+                    <option value="">Situação</option>
+                    <option value="">Data</option>
+                  </select>
+                </div>
+  
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+      <table class="table table-hover table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Matricula</th>
+            <th scope="col">CPF/CNPJ</th>
+            <th scope="col">Matricula</th>
+            <th scope="col">Cargo</th>
+            <th scope="col">Usuário</th>
+            <th scope="col">Perfil</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>Larry</td>
+            <td>Bird</td>
+            <td>@twitter</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
+  </div>

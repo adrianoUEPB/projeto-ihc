@@ -1,3 +1,6 @@
+import { ServidorListaComponent } from './servidor/servidor-lista/servidor-lista.component';
+import { ServidorCadastroComponent } from './servidor/servidor-cadastro/servidor-cadastro.component';
+import { ServidorComponent } from './servidor/servidor.component';
 import { Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
@@ -16,6 +19,9 @@ export const ROUTES: Routes = [
   { path: 'processos/novo', component: FormNovoComponent },
   { path: 'processos/lista', component: ListarProcessosComponent },
   { path: 'processos/pesquisar', component: FormPesquisarComponent },
+  { path: 'servidor', component: ServidorComponent },
+  { path: 'servidor/cadastrar', component: ServidorCadastroComponent },
+  { path: 'servidor/listar', component: ServidorListaComponent },
   { path: 'sobre', component: SobreComponent },
   { path: 'login', component: LoginComponent },
   { path: '**', component: NotFoundComponent }

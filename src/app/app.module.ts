@@ -19,6 +19,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormNovoComponent } from './processos/form-novo/form-novo.component';
 import { ListarProcessosComponent } from './processos/listar-processos/listar-processos.component';
 import { FormPesquisarComponent } from './processos/form-pesquisar/form-pesquisar.component';
+import { ServidorComponent } from './servidor/servidor.component';
+import { ServidorCadastroComponent } from './servidor/servidor-cadastro/servidor-cadastro.component';
+import { ServidorListaComponent } from './servidor/servidor-lista/servidor-lista.component';
 
 
 
@@ -37,7 +40,10 @@ import { FormPesquisarComponent } from './processos/form-pesquisar/form-pesquisa
     FormNovoComponent,
     ListarProcessosComponent,
     FormPesquisarComponent,
-    FormPesquisarComponent
+    FormPesquisarComponent,
+    ServidorComponent,
+    ServidorCadastroComponent,
+    ServidorListaComponent
   ],
   imports: [
     // AngularFontAwesomeModule,
