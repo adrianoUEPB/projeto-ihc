@@ -52,8 +52,13 @@ body {
 
 /* Custom Bootstrap */
 
-.btn-outline-success {
-  color: #58913b !important;
+.btn-success {
+  background: #58913b !important;
+  border-color: #58913b !important;
+}
+
+.btn-success:hover {
+  background: #4a7a32 !important;
   border-color: #58913b !important;
 }
 
@@ -89,3 +94,5 @@ textarea {
 .table-hover tbody tr:hover {
   background: #f3f9ed !important;
 }
+
+

@@ -2,3 +2,8 @@
 .marcacao {
   border: 1px solid red;
 }
+
+.clique:hover {
+  cursor: pointer;
+}
+

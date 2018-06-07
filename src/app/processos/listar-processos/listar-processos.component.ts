@@ -1,3 +1,4 @@
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarProcessosComponent implements OnInit {
 
+  formFilter: FormGroup
   filtrar: boolean = false;
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+  }
+  
+  showFilter() {
+    (this.filtrar?this.filtrar = false: this.filtrar = true);
   }
 
 }
