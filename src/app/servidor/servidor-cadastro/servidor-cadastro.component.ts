@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-servidor-cadastro',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servidor-cadastro.component.css']
 })
 export class ServidorCadastroComponent implements OnInit {
+
+  servidorForm: FormGroup
 
   constructor() { }
 

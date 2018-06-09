@@ -22,6 +22,8 @@ import { FormPesquisarComponent } from './processos/form-pesquisar/form-pesquisa
 import { ServidorComponent } from './servidor/servidor.component';
 import { ServidorCadastroComponent } from './servidor/servidor-cadastro/servidor-cadastro.component';
 import { ServidorListaComponent } from './servidor/servidor-lista/servidor-lista.component';
+import { TemplateFormComponent } from './processos/template-form/template-form.component';
+import { DetalheComponent } from './processos/detalhe/detalhe.component';
 
 
 
@@ -43,7 +45,9 @@ import { ServidorListaComponent } from './servidor/servidor-lista/servidor-lista
     FormPesquisarComponent,
     ServidorComponent,
     ServidorCadastroComponent,
-    ServidorListaComponent
+    ServidorListaComponent,
+    TemplateFormComponent,
+    DetalheComponent,
   ],
   imports: [
     // AngularFontAwesomeModule,

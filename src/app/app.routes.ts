@@ -11,6 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FormNovoComponent } from './processos/form-novo/form-novo.component';
 import { ListarProcessosComponent } from './processos/listar-processos/listar-processos.component';
 import { FormPesquisarComponent } from './processos/form-pesquisar/form-pesquisar.component';
+import { DetalheComponent } from './processos/detalhe/detalhe.component';
 
 export const ROUTES: Routes = [
   { path: 'home', component: HomeComponent },
@@ -19,10 +20,13 @@ export const ROUTES: Routes = [
   { path: 'processos/novo', component: FormNovoComponent },
   { path: 'processos/lista', component: ListarProcessosComponent },
   { path: 'processos/pesquisar', component: FormPesquisarComponent },
+  { path: 'processos/editar', component: DetalheComponent },
   { path: 'servidor', component: ServidorComponent },
   { path: 'servidor/cadastrar', component: ServidorCadastroComponent },
   { path: 'servidor/listar', component: ServidorListaComponent },
   { path: 'sobre', component: SobreComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'teste', component: LoginComponent },
+
   { path: '**', component: NotFoundComponent }
 ];
