@@ -24,8 +24,8 @@ import { ServidorCadastroComponent } from './servidor/servidor-cadastro/servidor
 import { ServidorListaComponent } from './servidor/servidor-lista/servidor-lista.component';
 import { TemplateFormComponent } from './processos/template-form/template-form.component';
 import { DetalheComponent } from './processos/detalhe/detalhe.component';
-
-
+import { TemplateServidorFormComponent } from './servidor/template-servidor-form/template-servidor-form.component';
+import { ProcessoService } from './processos/processo.service';
 
 @NgModule({
   declarations: [
@@ -48,6 +48,7 @@ import { DetalheComponent } from './processos/detalhe/detalhe.component';
     ServidorListaComponent,
     TemplateFormComponent,
     DetalheComponent,
+    TemplateServidorFormComponent,
   ],
   imports: [
     // AngularFontAwesomeModule,
@@ -55,7 +56,9 @@ import { DetalheComponent } from './processos/detalhe/detalhe.component';
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [
+    ProcessoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

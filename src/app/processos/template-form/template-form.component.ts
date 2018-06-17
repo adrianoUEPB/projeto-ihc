@@ -9,9 +9,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TemplateFormComponent implements OnInit {
 
   formulario: FormGroup
-  @Input() titulo: string
-  @Input() icone: string
+  
   @Input('novoForm') new?: string = 'true'
+  editar: boolean = false
 
   constructor(private fb: FormBuilder) { }
 
@@ -35,6 +35,7 @@ export class TemplateFormComponent implements OnInit {
   }
 
   createUpdateForm() {
+    this.editar = true
     this.formulario = this.fb.group({
       name: ['Update form', Validators.required],
       cpf: ['Update form', Validators.required],

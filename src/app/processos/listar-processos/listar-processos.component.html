@@ -7,7 +7,6 @@
       <div class="ml-auto">
           <i class="fa fa-filter clique" (click)="showFilter()" aria-hidden="true"> Ativar Filtro</i>
       </div>
-
     </div>
     
     <div *ngIf="filtrar">
@@ -49,32 +48,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>Bird</td>
-          <td>@twitter</td>
-          <td>@twitter</td>
+        <tr *ngFor="let processo of processos" (click)="showItem(processo)" data-toggle="modal" data-target="#modalVisualizar">
+          <td>{{ processo.protocolo }}</td>
+          <td>{{ processo.contribuinte }}</td>
+          <td>{{ processo.cpf_cnpj }}</td>
+          <td>{{ processo.assunto }}</td>
+          <td>{{ processo.situacao }}</td>
+          <td>{{ processo.entrada }}</td>
         </tr>
       </tbody>
     </table>
 
   </div>
 </div>
+
