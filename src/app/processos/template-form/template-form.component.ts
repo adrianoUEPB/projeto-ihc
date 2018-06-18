@@ -26,22 +26,52 @@ export class TemplateFormComponent implements OnInit {
 
   createNewForm() {
     this.formulario = this.fb.group({
-      name: ['novo', Validators.required],
+      name: ['', Validators.required],
       cpf: ['', Validators.required],
       email: ['', Validators.required],
       foneFixo: [''],
       celular: ['', Validators.required],
+      endereco: this.fb.group({
+        rua: ['', Validators.required],
+        numero: ['', Validators.required],
+        complemento: [''],
+        cep: ['', Validators.required],
+        bairro: ['', Validators.required],
+        cidade: ['', Validators.required],
+        pais: ['', Validators.required]
+      }),
+      processo: this.fb.group({
+        assunto: ['', Validators.required],
+        problema: ['', Validators.required],
+        situacao: ['Em Análise', Validators.required],
+        obs: ['']
+      })
     });
   }
 
   createUpdateForm() {
     this.editar = true
     this.formulario = this.fb.group({
-      name: ['Update form', Validators.required],
-      cpf: ['Update form', Validators.required],
-      email: ['Update form', Validators.required],
-      foneFixo: ['Update form'],
-      celular: ['Update form', Validators.required],
+      name: ['Update', Validators.required],
+      cpf: ['Update', Validators.required],
+      email: ['Update', Validators.required],
+      foneFixo: ['Update'],
+      celular: ['Update', Validators.required],
+      endereco: this.fb.group({
+        rua: ['Update', Validators.required],
+        numero: ['Update', Validators.required],
+        complemento: ['Update'],
+        cep: ['Update', Validators.required],
+        bairro: ['Update', Validators.required],
+        cidade: ['Update', Validators.required],
+        pais: ['Update', Validators.required]
+      }),
+      processo: this.fb.group({
+        assunto: ['IPTU', Validators.required],
+        problema: ['ANÁLISE DE DÉBITO', Validators.required],
+        situacao: ['Em Análise', Validators.required],
+        obs: ['Update']
+      })
     });
   }
 
