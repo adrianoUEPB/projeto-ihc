@@ -1,5 +1,6 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
+import { ProcessosService } from '../processos.service';
 
 @Component({
   selector: 'app-template-form',
@@ -13,7 +14,9 @@ export class TemplateFormComponent implements OnInit {
   @Input('novoForm') new?: string = 'true'
   editar: boolean = false
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+              private processosService: ProcessosService
+  ) { }
 
   ngOnInit() {
     console.log(this.new)
@@ -73,6 +76,11 @@ export class TemplateFormComponent implements OnInit {
         obs: ['Update']
       })
     });
+  }
+
+  saveForm() {
+    console.log(this.formulario.value)
+    // this.processosService.insertProcesso(this.formulario.value)
   }
 
 

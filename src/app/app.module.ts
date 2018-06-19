@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { ROUTES } from './app.routes';
@@ -25,7 +27,9 @@ import { ServidorListaComponent } from './servidor/servidor-lista/servidor-lista
 import { TemplateFormComponent } from './processos/template-form/template-form.component';
 import { DetalheComponent } from './processos/detalhe/detalhe.component';
 import { TemplateServidorFormComponent } from './servidor/template-servidor-form/template-servidor-form.component';
-import { ProcessoService } from './processos/processo.service';
+
+import { environment } from '../environments/environment'
+import { ServidorService } from './servidor/servidor.service';
 
 @NgModule({
   declarations: [
@@ -54,10 +58,12 @@ import { ProcessoService } from './processos/processo.service';
     // AngularFontAwesomeModule,
     BrowserModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [
-    ProcessoService
+    ServidorService
   ],
   bootstrap: [AppComponent]
 })

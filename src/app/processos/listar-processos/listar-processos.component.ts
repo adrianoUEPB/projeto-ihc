@@ -1,4 +1,3 @@
-import { ProcessoService } from './../processo.service';
 import { Processo } from './../../../models/processo.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +15,6 @@ export class ListarProcessosComponent implements OnInit {
 
   processos;
   constructor(private fb: FormBuilder,
-              private processoService: ProcessoService,
               private router: Router
   ) { }
 
@@ -29,7 +27,6 @@ export class ListarProcessosComponent implements OnInit {
   }
 
   getProcessos() {
-    this.processos = this.processoService.getProcessos()
   }
 
   showItem(processo) {
