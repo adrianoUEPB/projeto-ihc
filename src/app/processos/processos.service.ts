@@ -18,7 +18,9 @@ export class ProcessosService implements OnInit {
   }
 
   getProcessos(){
-    return this.db.list('/processos').valueChanges();
+    const processo = this.db.list('processos');
+
+    console.log(processo)
   }
 
   insertProcesso(processo: Processo) {

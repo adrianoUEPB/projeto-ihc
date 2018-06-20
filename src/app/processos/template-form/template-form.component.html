@@ -7,38 +7,33 @@
 <form [formGroup]="formulario">
   <div class="col-md-12">
     <div class="row">
-      <div class="form-group col-md-8">
-        <label>
-          Nome contribuinte
-        </label>
-        <input type="text" class="form-control form-control-sm" formControlName="name">
+      <div class="col-md-8">
+        <app-input-container errorMessage="Campo obrigatório e minímo de 5 caracteres" label="Nome contribuinte">
+          <input class="form-control form-control-sm" formControlName="name">
+        </app-input-container>
       </div>
-      <div class="form-group col-md-4">
-        <label>
-          CPF
-        </label>
-        <input type="text" class="form-control form-control-sm" formControlName="cpf">
+      <div class="col-md-4">
+        <app-input-container errorMessage="Campo obrigatório" label="CPF/CNPJ">
+          <input type="text" class="form-control form-control-sm" (keydown)="mascaCpfCnpj($event.key)" formControlName="cpf">
+        </app-input-container>
       </div>
     </div>
 
     <div class="row">
-      <div class="form-group col-md-6">
-        <label>
-          E-mail
-        </label>
-        <input type="text" class="form-control form-control-sm" formControlName="email">
+      <div class="col-md-6">
+        <app-input-container errorMessage="Campo obrigatório" label="E-mail">
+          <input type="text" class="form-control form-control-sm" formControlName="email">
+        </app-input-container>
       </div>
-      <div class="form-group col-md-3">
-        <label>
-          Telefone Fixo
-        </label>
-        <input type="text" class="form-control form-control-sm" formControlName="foneFixo">
+      <div class="col-md-3">
+        <app-input-container [showTip]="false" label="Telefone Fixo">
+          <input type="text" class="form-control form-control-sm" formControlName="foneFixo">
+        </app-input-container>
       </div>
-      <div class="form-group col-md-3">
-        <label>
-          Celular
-        </label>
-        <input type="text" class="form-control form-control-sm" formControlName="celular">
+      <div class="col-md-3">
+        <app-input-container errorMessage="Campo obrigatório" label="Celular">
+          <input type="text" class="form-control form-control-sm" formControlName="celular">
+        </app-input-container>
       </div>
     </div>
 
@@ -46,50 +41,43 @@
 
     <div class="" formGroupName="endereco">
       <div class="row">
-        <div class="form-group col-md-6">
-          <label>
-            Rua
-          </label>
-          <input type="text" class="form-control form-control-sm" formControlName="rua">
+        <div class="col-md-6">
+          <app-input-container errorMessage="Campo obrigatório" label="Rua">
+            <input type="text" class="form-control form-control-sm" formControlName="rua">
+          </app-input-container>
         </div>
         <div class="form-group col-md-2">
-          <label>
-            Número
-          </label>
-          <input type="text" class="form-control form-control-sm" formControlName="numero">
+          <app-input-container errorMessage="Campo obrigatório" label="Número">
+            <input type="text" class="form-control form-control-sm" formControlName="numero">
+          </app-input-container>
         </div>
         <div class="form-group col-md-4">
-          <label>
-            Complemento
-          </label>
-          <input type="text" class="form-control form-control-sm" formControlName="complemento">
+          <app-input-container [showTip]="false" label="Complemento">
+            <input type="text" class="form-control form-control-sm" formControlName="complemento">
+          </app-input-container>
         </div>
       </div>
   
       <div class="row">
         <div class="form-group col-md-3">
-          <label>
-            CEP
-          </label>
-          <input type="text" class="form-control form-control-sm" formControlName="cep">
+          <app-input-container errorMessage="Campo obrigatório" label="CEP">
+            <input type="text" class="form-control form-control-sm" formControlName="cep">
+          </app-input-container>
         </div>
         <div class="form-group col-md-3">
-          <label>
-            Bairro
-          </label>
-          <input type="text" class="form-control form-control-sm" formControlName="bairro">
+          <app-input-container errorMessage="Campo obrigatório" label="Bairro">
+            <input type="text" class="form-control form-control-sm" formControlName="bairro">
+          </app-input-container>
         </div>
         <div class="form-group col-md-3">
-          <label>
-            Cidade
-          </label>
-          <input type="text" class="form-control form-control-sm" formControlName="cidade">
+          <app-input-container errorMessage="Campo obrigatório" label="Cidade">
+            <input type="text" class="form-control form-control-sm" formControlName="cidade">
+          </app-input-container>
         </div>
         <div class="form-group col-md-3">
-          <label>
-            País
-          </label>
-          <input type="text" class="form-control form-control-sm" formControlName="pais">
+          <app-input-container errorMessage="Campo obrigatório" label="País">
+            <input type="text" class="form-control form-control-sm" formControlName="pais">
+          </app-input-container>
         </div>
       </div>
 
@@ -100,31 +88,34 @@
     <div formGroupName="processo">
       <div class="row">
         <div class="form-group col-md-4">
-          <label>Assunto</label>
-          <select class="form-control form-control-sm custom-select" formControlName="assunto">
-            <option>IPTU</option>
-            <option>ITBI</option>
-          </select>
+          <app-input-container [showTip]="false" label="Assunto">
+            <select class="form-control form-control-sm custom-select" formControlName="assunto">
+              <option>IPTU</option>
+              <option>ITBI</option>
+            </select>
+          </app-input-container>
         </div>
         <div class="form-group col-4">
-          <label>Problema</label>
-          <select class="form-control form-control-sm custom-select" formControlName="problema">
-            <option>BAIXA DE DÉBITO</option>
-            <option>CERTIDÃO DE DÉBITO</option>
-            <option>ANÁLISE DE DÉBITO</option>
-          </select>
+          <app-input-container [showTip]="false" label="Problema">
+            <select class="form-control form-control-sm custom-select" formControlName="problema">
+              <option>BAIXA DE DÉBITO</option>
+              <option>CERTIDÃO DE DÉBITO</option>
+              <option>ANÁLISE DE DÉBITO</option>
+            </select>
+          </app-input-container>
         </div>
   
         <div *ngIf="editar" class="col">
           <div class="row">
             <div class="form-group col">
-              <label>Situação</label>
-              <select class="form-control form-control-sm custom-select" formControlName="situacao">
-                <option>Em Análise</option>
-                <option>Pendente</option>
-                <option>Deferido</option>
-                <option>Indeferido</option>
-              </select>
+              <app-input-container [showTip]="false" label="Situação">
+                <select class="form-control form-control-sm custom-select" formControlName="situacao">
+                  <option>Em Análise</option>
+                  <option>Pendente</option>
+                  <option>Deferido</option>
+                  <option>Indeferido</option>
+                </select>
+              </app-input-container>
             </div>
   
           </div>
@@ -132,8 +123,9 @@
       </div>
       <div class="row">
         <div class="form-group col">
-          <label>Observações</label><br>
-          <textarea class="form-control" name="obs" id="" cols="30" rows="10" formControlName="obs"></textarea>
+          <app-input-container [showTip]="false" label="Observações">
+            <textarea class="form-control" name="obs" id="" cols="30" rows="10" formControlName="obs"></textarea>
+          </app-input-container>
         </div>
       </div>
 

@@ -6,12 +6,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyCeA-tXbmrukJJ466XzHIWbk7At2Lp3t9M",
-    authDomain: "back-projeto-ihc.firebaseapp.com",
-    databaseURL: "https://back-projeto-ihc.firebaseio.com",
-    projectId: "back-projeto-ihc",
-    storageBucket: "back-projeto-ihc.appspot.com",
-    messagingSenderId: "1057086861137"
+    apiKey: "AIzaSyB7uPnoGl6y5X1tt45ev4ybM4Bk42gUcTA",
+    authDomain: "projeto-e74ec.firebaseapp.com",
+    databaseURL: "https://projeto-e74ec.firebaseio.com",
+    projectId: "projeto-e74ec",
+    storageBucket: "projeto-e74ec.appspot.com",
+    messagingSenderId: "700740785047"
+
   }
 
 };

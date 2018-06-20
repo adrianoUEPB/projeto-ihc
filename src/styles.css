@@ -75,6 +75,11 @@ body {
   background: #45722f !important;
 }
 
+
+.form-control {
+  border-radius: 0;
+}
+
 /* .btn-outline-success:focus, */
 .form-control:focus{
   border-color: #29471a !important;
@@ -95,4 +100,7 @@ textarea {
   background: #f3f9ed !important;
 }
 
+.has-error {
+  border: 1px solid red;
+}
 

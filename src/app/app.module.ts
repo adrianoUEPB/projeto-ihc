@@ -30,6 +30,7 @@ import { DetalheComponent } from './processos/detalhe/detalhe.component';
 import { TemplateServidorFormComponent } from './servidor/template-servidor-form/template-servidor-form.component';
 
 import { ROUTES } from './app.routes';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { ROUTES } from './app.routes';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    SharedModule,
     RouterModule.forRoot(ROUTES),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
