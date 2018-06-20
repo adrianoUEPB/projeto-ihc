@@ -1,7 +1,10 @@
+import { FirebaseListObservable } from 'angularfire2/database-deprecated';
+import { ProcessosService } from './../processos.service';
 import { Processo } from './../../../models/processo.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-listar-processos',
@@ -13,13 +16,14 @@ export class ListarProcessosComponent implements OnInit {
   formFilter: FormGroup
   filtrar: boolean = false;
 
-  processos;
+  processos: AngularFireList<any>
+
   constructor(private fb: FormBuilder,
-              private router: Router
+              private router: Router,
+              private processosService: ProcessosService
   ) { }
 
   ngOnInit() {
-    this.getProcessos()
   }
   
   showFilter() {
@@ -27,6 +31,10 @@ export class ListarProcessosComponent implements OnInit {
   }
 
   getProcessos() {
+    console.log('Chamou o getProcessos do Listar component')
+    console.log(this.processosService.getProcessos())
+    // console.log(this.processos)
+
   }
 
   showItem(processo) {

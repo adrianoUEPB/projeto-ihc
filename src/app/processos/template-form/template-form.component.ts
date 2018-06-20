@@ -80,9 +80,14 @@ export class TemplateFormComponent implements OnInit {
 
   saveForm() {
     console.log(this.formulario.value)
-    // this.processosService.insertProcesso(this.formulario.value)
+    this.processosService.insertProcesso(this.formulario.value)
   }
 
+  getProcessos() {
+    console.log('Chamou o getProcessos do template component')
+    
+    console.log(this.processosService.getProcessos())
 
+  }
 
 }

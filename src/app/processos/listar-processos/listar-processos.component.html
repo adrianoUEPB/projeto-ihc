@@ -48,17 +48,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let processo of processos" (click)="showItem(processo)" data-toggle="modal" data-target="#modalVisualizar">
+        <!-- <tr *ngFor="let processo of processos" (click)="showItem(processo)" data-toggle="modal" data-target="#modalVisualizar">
           <td>{{ processo.protocolo }}</td>
           <td>{{ processo.contribuinte }}</td>
           <td>{{ processo.cpf_cnpj }}</td>
           <td>{{ processo.assunto }}</td>
           <td>{{ processo.situacao }}</td>
           <td>{{ processo.entrada }}</td>
-        </tr>
+        </tr> -->
       </tbody>
     </table>
 
   </div>
 </div>
 
+<div>
+  <button class="btn btn-success" (click)="getProcessos()" >Console</button>
+</div>

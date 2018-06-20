@@ -1,38 +1,38 @@
-import { Processo } from './processo.model';
-import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { Injectable, OnInit } from '@angular/core';
+import { Processo } from '../models/processo.model';
+
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+
 
 @Injectable()
 export class ProcessosService implements OnInit {
 
-  processosObservable: any[]
-  processoList: AngularFireList<Processo>;
-  selectProcesso: Processo;
+  processosObservable: Observable<Processo[]>
 
-  constructor(private firebase : AngularFireDatabase) { }
-
-  ngOnInit() {
-    // this.processosObservable = this.getProcessos()
-    // console.log(this.processosObservable);
-  }
-
-  getProcessos() {
-    // this.processosObservable = this.firebase.list('Processoes');
-    console.log(this.firebase.list('/processos').valueChanges());
+  constructor(private db : AngularFireDatabase) {
     
   }
 
+  ngOnInit() {
+  }
+
+  getProcessos(){
+    return this.db.list('/processos').valueChanges();
+  }
+
   insertProcesso(processo: Processo) {
-    this.processoList.push(processo);
+    console.log('insertProcesso')
+    console.log(processo)
+    this.db.list('processos').push(processo);
   }
 
   updateProcesso(processo: Processo) {
-    this.processoList.update(processo.$key, processo)
+    // this.processoList.update(processo.$key, processo)
   }
 
   deleteProcesso($key : string) {
-    this.processoList.remove($key);
+    // this.processoList.remove($key);
   }
 
 }

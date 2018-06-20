@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-// import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
-import { ROUTES } from './app.routes';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { environment } from '../environments/environment'
+
+import { ProcessosService } from './processos/processos.service';
+import { ServidorService } from './servidor/servidor.service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -13,7 +15,6 @@ import { FooterComponent } from './footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { HomeComponent } from './home/home.component';
-import { InputContentComponent } from '../components/input-content/input-content.component';
 import { LoginComponent } from './security/login/login.component';
 import { ProcessosComponent } from './processos/processos.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -28,8 +29,7 @@ import { TemplateFormComponent } from './processos/template-form/template-form.c
 import { DetalheComponent } from './processos/detalhe/detalhe.component';
 import { TemplateServidorFormComponent } from './servidor/template-servidor-form/template-servidor-form.component';
 
-import { environment } from '../environments/environment'
-import { ServidorService } from './servidor/servidor.service';
+import { ROUTES } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,6 @@ import { ServidorService } from './servidor/servidor.service';
     ProcessosComponent,
     HomeComponent,
     LoginComponent,
-    InputContentComponent,
     NotFoundComponent,
     FormNovoComponent,
     ListarProcessosComponent,
@@ -55,15 +54,15 @@ import { ServidorService } from './servidor/servidor.service';
     TemplateServidorFormComponent,
   ],
   imports: [
-    // AngularFontAwesomeModule,
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
   ],
   providers: [
-    ServidorService
+    ServidorService,
+    ProcessosService,
   ],
   bootstrap: [AppComponent]
 })
