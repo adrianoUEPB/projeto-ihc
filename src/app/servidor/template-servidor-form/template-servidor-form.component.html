@@ -1,55 +1,50 @@
 <form [formGroup]="servidorForm">
   <div class="col-md-12">
     <div class="row">
-      <div class="form-group col-md-6">
-        <label>
-          Nome Completo
-        </label>
-        <input type="text" class="form-control form-control-sm">
+      <div class="col-md-6">
+        <app-input-container errorMessage="Campo obrigatório" label="Nome">
+          <input type="text" class="form-control form-control-sm" formControlName="name">
+        </app-input-container>
       </div>
-      <div class="form-group col-md-3">
-        <label>
-          CPF
-        </label>
-        <input type="text" class="form-control form-control-sm">
+      <div class="col-md-3">
+        <app-input-container errorMessage="Campo obrigatório" label="CPF">
+          <input type="text" class="form-control form-control-sm" formControlName="cpf">
+        </app-input-container>
       </div>
-      <div class="form-group col-md-3">
-        <label>
-          Matricula
-        </label>
-        <input type="text" class="form-control form-control-sm">
+      <div class="col-md-3">
+        <app-input-container errorMessage="Campo obrigatório" label="Matricula">
+          <input type="text" class="form-control form-control-sm" formControlName="matricula">
+        </app-input-container>
       </div>
     </div>
 
     <div class="row">
-      <div class="form-group col-md-3">
-        <label>
-          Login
-        </label>
-        <input type="text" class="form-control form-control-sm">
+      <div class="col-md-3">
+        <app-input-container errorMessage="Campo obrigatório" label="Login">
+          <input type="text" class="form-control form-control-sm" formControlName="login">
+        </app-input-container>
       </div>
-      <div class="form-group col-md-3">
-        <label>
-          Senha
-        </label>
-        <input type="text" class="form-control form-control-sm">
+      <div class="col-md-3">
+        <app-input-container errorMessage="Campo obrigatório" label="Senha">
+          <input type="text" class="form-control form-control-sm" formControlName="senha">
+        </app-input-container>
       </div>
-      <div class="form-group col-md-3">
-        <label>
-          Perfil
-        </label>
-        <select class="form-control form-control-sm custom-select">
-          <option>Administrador</option>
-          <option>Comum</option>
-        </select>
+      <div class="col-md-3">
+        <app-input-container [showTip]="false" label="Perfil">
+          <select class="form-control form-control-sm custom-select" formControlName="perfil">
+            <option>Administrador</option>
+            <option>Comum</option>
+          </select>
+        </app-input-container>
       </div>
-      <div class="form-group col-md-3">
-        <label>Cargo</label>
-        <select class="form-control form-control-sm custom-select">
-          <option>Diretor</option>
-          <option>Secretário</option>
-          <option>Apoio Administrativo</option>
-        </select>
+      <div class="col-md-3">
+        <app-input-container [showTip]="false" label="Cargo">
+          <select class="form-control form-control-sm custom-select" formControlName="cargo">
+            <option>Diretor</option>
+            <option>Secretário</option>
+            <option>Apoio Administrativo</option>
+          </select>
+        </app-input-container>
       </div>
     </div>
     </div>
@@ -59,7 +54,7 @@
     <div class="row">
       <div class="ml-auto mr-3">
         <button class="btn btn-outline-success">Cancelar</button>
-        <button class="btn btn-success">Cadastrar</button>
+        <button class="btn btn-success" (click)="saveForm()" >Cadastrar</button>
       </div>
     </div>
   </div>

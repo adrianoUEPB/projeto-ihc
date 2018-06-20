@@ -19,7 +19,9 @@ export class ServidorService {
   }
 
   insertServidor(servidor: Servidor) {
-    this.servidorList.push(servidor);
+    console.log('insertServidor Service')
+    console.log(servidor)
+    this.firebase.list('servidores').push(servidor);
   }
 
   updateServidor(servidor: Servidor) {
