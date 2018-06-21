@@ -1,3 +1,5 @@
+import { ProcessosService } from './processos.service';
+import { LoginService } from './../security/login/login.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProcessosComponent implements OnInit {
 
-  constructor() { }
+  perfilUsuario: string
+  escrita: boolean = false
+  leitura: boolean = false
+
+  constructor(private processoService: ProcessosService) { }
 
   ngOnInit() {
+    this.escrita = this.processoService.escrita
+    this.leitura = this.processoService.leitura
   }
 
 }

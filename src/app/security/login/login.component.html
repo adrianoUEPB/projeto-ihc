@@ -1,3 +1,4 @@
+<app-snack></app-snack>
 <div class="row justify-content-center">
   <div class="col col-md-6">
     <section class="content">
@@ -6,13 +7,15 @@
           <b>SPM</b> | Login
         </div>
         <form [formGroup]="loginForm" class="form-group">
-          <label for="">Usuário</label>
-          <input formControlName="usuario" class="form-control form-control-sm" type="email">
-          <label for="">Senha</label>
-          <input formControlName="password" class="form-control form-control-sm" type="text">
+          <app-input-container [showTip]="false" label="Login">
+            <input type="text" class="form-control form-control-sm" formControlName="login">
+          </app-input-container>
+          <app-input-container [showTip]="false" label="Senha">
+            <input type="text" class="form-control form-control-sm" formControlName="senha">
+          </app-input-container>
         </form>
         <div class="float-right mt-3">
-          <button class="btn btn-outline-success">Acessar</button>
+          <button class="btn btn-outline-success" (click)="login()">Acessar</button>
         </div>
       </div>
   </section>

@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <div class="logo-text">
         <div class="pb-3">
-          <div class="row">
+          <div *ngIf="adminstrador" class="row">
             <div class="col-md-6 mouse-in-icon">
               Cadastrar<br>
               <i [routerLink]="['/servidor/cadastrar']" class="fa fa-user-plus fa-3x clique" aria-hidden="true"></i> 
@@ -13,10 +13,11 @@
               <i [routerLink]="['/servidor/listar']" class="fa fa-users fa-3x clique" aria-hidden="true"></i>
             </div>
           </div>
+          <div *ngIf="!adminstrador">
+            <p>Você não tem permissão para acessar esta funcionalidade.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<button (click)="getServidores()">getServidores</button>

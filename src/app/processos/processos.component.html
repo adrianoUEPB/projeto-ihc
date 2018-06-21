@@ -5,15 +5,15 @@
         
         <div class="col-md-12 pb-3">
           <div class="row">
-            <div class="col-md-4 mouse-in-icon">
+            <div *ngIf="escrita" class="col mouse-in-icon">
               Novo<br>
               <i [routerLink]="['/processos/novo']" class="fa fa-file-o fa-3x clique" aria-hidden="true"></i> 
             </div>
-            <div class="col-md-4 mouse-in-icon">
+            <div *ngIf="leitura" class="col mouse-in-icon">
               Listar<br>
               <i [routerLink]="['/processos/lista']" class="fa fa-file-text-o fa-3x clique" aria-hidden="true"></i>
             </div>
-            <div class="col-md-4 mouse-in-icon">
+            <div class="col mouse-in-icon">
               Pesquisar<br>
               <i [routerLink]="['/processos/pesquisar']" class="fa fa-search fa-3x clique" aria-hidden="true"></i>
             </div>
@@ -22,8 +22,4 @@
       </div>
     </div>
   </div>
-</div>
-
-<div>
-  <button class="btn btn-success" (click)="clique()">Clique</button>
 </div>

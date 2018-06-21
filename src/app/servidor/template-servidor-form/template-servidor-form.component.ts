@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 import { ServidorService } from './../servidor.service';
+import { NotificationService } from '../../shared/notification.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class TemplateServidorFormComponent implements OnInit {
   cpfPattern = /^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$/ || /^[0-9]{2}.[0-9]{3}.[0-9]{3}\/[0-9]{4}-[0-9]{2}$/
 
   constructor(private servidorService: ServidorService,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder,
+              private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.createNewForm()
@@ -26,8 +28,8 @@ export class TemplateServidorFormComponent implements OnInit {
 
   createNewForm() {
     this.servidorForm = new FormGroup({
-      name:  this.fb.control('', [Validators.required, Validators.minLength(5)]),
-      cpf: this.fb.control('', [Validators.required, Validators.pattern(this.cpfPattern)]),
+      name:  this.fb.control('', [Validators.required]),
+      cpf: this.fb.control('', [Validators.required]),
       matricula: this.fb.control('', [Validators.required]),
       login: this.fb.control('', [Validators.required]),
       senha: this.fb.control('', [Validators.required]),
@@ -40,6 +42,7 @@ export class TemplateServidorFormComponent implements OnInit {
   insertServidor() {
     this.servidorService.insertServidor(this.servidorForm.value)
       .subscribe(servidor => this.servidores.push(servidor))
+    this.notificationService.notify(`Servidor adicionado com sucesso`)
   }
 
   

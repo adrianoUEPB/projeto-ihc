@@ -1,7 +1,7 @@
+import { NotificationService } from './../../shared/notification.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 import { ProcessosService } from '../processos.service';
-import { ValidationPath } from '@firebase/database/dist/src/core/util/Path';
 import { Processo } from '../../models/processo.model';
 
 @Component({
@@ -12,7 +12,7 @@ import { Processo } from '../../models/processo.model';
 export class TemplateFormComponent implements OnInit {
 
   formulario: FormGroup
-  processos: Processo[]
+  processos: any[]
 
   emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
   numberPattern = /^[0-9]*$/
@@ -22,7 +22,8 @@ export class TemplateFormComponent implements OnInit {
   @Input('novoForm') new?: boolean = true
 
   constructor(private fb: FormBuilder,
-              private processosService: ProcessosService
+              private processosService: ProcessosService,
+              private notificationService: NotificationService
   ) { }
 
   ngOnInit() {
@@ -35,9 +36,9 @@ export class TemplateFormComponent implements OnInit {
 
   createNewForm() {
     this.formulario = new FormGroup({
-      name:  this.fb.control('', [Validators.required, Validators.minLength(5)]),
-      cpf: this.fb.control('', [Validators.required, Validators.pattern(this.cpfPattern)]),
-      email: this.fb.control('', [Validators.required]),
+      name:  this.fb.control('', [Validators.required]),
+      cpf: this.fb.control('', [Validators.required]),
+      email: this.fb.control('', [Validators.required, Validators.pattern(this.emailPattern)]),
       foneFixo: this.fb.control(''),
       celular: this.fb.control('', [Validators.required]),
       endereco: this.fb.group({
@@ -110,9 +111,11 @@ export class TemplateFormComponent implements OnInit {
   }
  
   insertProcesso() {
-    this.processosService.insertProcesso(this.formulario.value).subscribe(
+    var dados = this.formulario.value
+    this.processosService.insertProcesso(dados).subscribe(
       processo => this.processos.push(processo)
     )
+    this.notificationService.notify(`Processo adicionado com sucesso! Protocolo: ${dados.processo.protocolo}`)
   }
 
   getProcessos() {
@@ -121,8 +124,6 @@ export class TemplateFormComponent implements OnInit {
       .subscribe(
         processo => {
           this.processos = processo
-
-          console.log(this.processos)
         }
       )
   }

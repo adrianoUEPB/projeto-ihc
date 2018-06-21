@@ -10,6 +10,8 @@ import { Servidor } from './../models/servidor.model';
 @Injectable()
 export class ServidorService {
 
+  perfilUsuario: string
+  administrador: boolean = false
 
   constructor(private http: HttpClient) { 
   }
@@ -17,6 +19,16 @@ export class ServidorService {
   getServidores(): Observable<Servidor[]> {
     return this.http.get<Servidor[]>(`${APP_API}/servidores`)
   }
+  verificaAcesso(usuario: Servidor) {
+    this.perfilUsuario = usuario[0].perfil
+
+    if(this.perfilUsuario === "Administrador") {
+      this.administrador = true
+    } else {
+      this.administrador = false
+    }
+  }
+
 
   insertServidor(servidor: Servidor): Observable<Servidor> {
     return this.http.post<Servidor>(`${APP_API}/servidores`, servidor);

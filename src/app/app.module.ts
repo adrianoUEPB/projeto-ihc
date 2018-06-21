@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
@@ -32,6 +33,7 @@ import { TemplateServidorFormComponent } from './servidor/template-servidor-form
 
 import { ROUTES } from './app.routes';
 import { SharedModule } from './shared/shared.module';
+import { LoginService } from './security/login/login.service';
 
 @NgModule({
   declarations: [
@@ -58,15 +60,16 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    SharedModule,
+    SharedModule.forRoot(),
     HttpClientModule,
     RouterModule.forRoot(ROUTES),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,
+    BrowserAnimationsModule
   ],
   providers: [
     ServidorService,
     ProcessosService,
+    LoginService
     // AngularFireDatabase
   ],
   bootstrap: [AppComponent]

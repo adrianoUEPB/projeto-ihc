@@ -1,4 +1,3 @@
-import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { ServidorService } from './servidor.service';
@@ -6,17 +5,17 @@ import { ServidorService } from './servidor.service';
 @Component({
   selector: 'app-servidor',
   templateUrl: './servidor.component.html',
-  styleUrls: ['./servidor.component.css'],
-  providers: [ServidorService]
+  styleUrls: ['./servidor.component.css']
 })
 export class ServidorComponent implements OnInit {
 
+  adminstrador: boolean = false;
   servidoresObservable: Observable<any[]>
 
-  constructor(private servidorService: ServidorService,
-              private db:AngularFireDatabase) { }
+  constructor(private servidorService: ServidorService) { }
 
   ngOnInit() {
+    this.adminstrador = this.servidorService.administrador
   }
 
 }
