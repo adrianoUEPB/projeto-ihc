@@ -1,7 +1,6 @@
 export interface Servidor {
-  $key?: string
   id: number
-  nome: string
+  name: string
   matricula: number
   cpf: string
   login: string

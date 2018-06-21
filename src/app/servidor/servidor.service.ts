@@ -1,35 +1,31 @@
+import { Observable } from 'rxjs/Observable';
+import { APP_API } from './../app.api';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 
-import { Servidor } from './servidor.model';
+import { Servidor } from './../models/servidor.model';
+
 
 @Injectable()
 export class ServidorService {
 
-  servidorList: AngularFireList<Servidor>;
-  selectServidor: Servidor;
 
-  constructor(private firebase : AngularFireDatabase) { }
-
-  getServidores() {
-    this.servidorList = this.firebase.list('servidores');
-    console.log(this.servidorList);
-    return this.servidorList;
+  constructor(private http: HttpClient) { 
   }
 
-  insertServidor(servidor: Servidor) {
-    console.log('insertServidor Service')
-    console.log(servidor)
-    this.firebase.list('servidores').push(servidor);
+  getServidores(): Observable<Servidor[]> {
+    return this.http.get<Servidor[]>(`${APP_API}/servidores`)
+  }
+
+  insertServidor(servidor: Servidor): Observable<Servidor> {
+    return this.http.post<Servidor>(`${APP_API}/servidores`, servidor);
   }
 
   updateServidor(servidor: Servidor) {
-    this.servidorList.update(servidor.$key, servidor)
   }
 
   deleteServidor($key : string) {
-    this.servidorList.remove($key);
   }
 
 }

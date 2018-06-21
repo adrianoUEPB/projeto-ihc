@@ -17,7 +17,7 @@
 
               <div class="col-md-6 pl-0">
                 <label>Termo de Busca</label> 
-                <input type="text" class="form-control form-control-sm" >
+                <input type="text" class="form-control form-control-sm">
               </div>
               <div class="col-md-4">
                 <label>Buscar por:</label> 
@@ -48,14 +48,14 @@
         </tr>
       </thead>
       <tbody>
-        <!-- <tr *ngFor="let processo of processos" (click)="showItem(processo)" data-toggle="modal" data-target="#modalVisualizar">
-          <td>{{ processo.protocolo }}</td>
-          <td>{{ processo.contribuinte }}</td>
-          <td>{{ processo.cpf_cnpj }}</td>
-          <td>{{ processo.assunto }}</td>
-          <td>{{ processo.situacao }}</td>
-          <td>{{ processo.entrada }}</td>
-        </tr> -->
+        <tr *ngFor="let processo of processos" (click)="showItem(processo)" data-toggle="modal" data-target="#modalVisualizar">
+          <td>{{ processo.processo.protocolo }}</td>
+          <td>{{ processo.name }}</td>
+          <td>{{ processo.cpf }}</td>
+          <td>{{ processo.processo.assunto }}</td>
+          <td>{{ processo.processo.situacao }}</td>
+          <td>{{ processo.processo.dataEntrada }}</td>
+        </tr>
       </tbody>
     </table>
 

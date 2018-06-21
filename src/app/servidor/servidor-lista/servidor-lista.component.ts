@@ -1,3 +1,5 @@
+import { Servidor } from './../../models/servidor.model';
+import { ServidorService } from './../servidor.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServidorListaComponent implements OnInit {
 
-  constructor() { }
+  servidores: Servidor[]
+
+  constructor(private servidorService: ServidorService) { }
 
   ngOnInit() {
+    this.getServidores()
+  }
+
+  getServidores() {
+    this.servidorService.getServidores()
+      .subscribe(servidor => this.servidores = servidor)
   }
 
 }

@@ -1,3 +1,5 @@
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { ServidorService } from './servidor.service';
 
@@ -9,7 +11,10 @@ import { ServidorService } from './servidor.service';
 })
 export class ServidorComponent implements OnInit {
 
-  constructor(private servidorService: ServidorService) { }
+  servidoresObservable: Observable<any[]>
+
+  constructor(private servidorService: ServidorService,
+              private db:AngularFireDatabase) { }
 
   ngOnInit() {
   }

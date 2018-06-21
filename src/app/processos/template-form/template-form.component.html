@@ -1,9 +1,3 @@
-
-<p>Form value: {{ formulario.value | json }} </p>
-<p>Form status: {{ formulario.status | json }} </p>
-<!-- <p>Form status: {{ formulario.value.name | json }} </p>
-<p>Form status: {{ formulario.value.name.status | json }} </p> -->
-
 <form [formGroup]="formulario">
   <div class="col-md-12">
     <div class="row">
@@ -46,12 +40,12 @@
             <input type="text" class="form-control form-control-sm" formControlName="rua">
           </app-input-container>
         </div>
-        <div class="form-group col-md-2">
+        <div class="col-md-2">
           <app-input-container errorMessage="Campo obrigatório" label="Número">
             <input type="text" class="form-control form-control-sm" formControlName="numero">
           </app-input-container>
         </div>
-        <div class="form-group col-md-4">
+        <div class="col-md-4">
           <app-input-container [showTip]="false" label="Complemento">
             <input type="text" class="form-control form-control-sm" formControlName="complemento">
           </app-input-container>
@@ -59,22 +53,22 @@
       </div>
   
       <div class="row">
-        <div class="form-group col-md-3">
+        <div class="col-md-3">
           <app-input-container errorMessage="Campo obrigatório" label="CEP">
             <input type="text" class="form-control form-control-sm" formControlName="cep">
           </app-input-container>
         </div>
-        <div class="form-group col-md-3">
+        <div class="col-md-3">
           <app-input-container errorMessage="Campo obrigatório" label="Bairro">
             <input type="text" class="form-control form-control-sm" formControlName="bairro">
           </app-input-container>
         </div>
-        <div class="form-group col-md-3">
+        <div class="col-md-3">
           <app-input-container errorMessage="Campo obrigatório" label="Cidade">
             <input type="text" class="form-control form-control-sm" formControlName="cidade">
           </app-input-container>
         </div>
-        <div class="form-group col-md-3">
+        <div class="col-md-3">
           <app-input-container errorMessage="Campo obrigatório" label="País">
             <input type="text" class="form-control form-control-sm" formControlName="pais">
           </app-input-container>
@@ -86,8 +80,25 @@
     <hr>
     
     <div formGroupName="processo">
+      <div class="row" *ngIf="!new">
+        <div class="col-md-4">
+          <app-input-container [showTip]="false" label="Protocolo">
+            <input type="text" class="form-control form-control-sm" formControlName="protocolo">
+          </app-input-container>
+        </div>
+        <div class="col-md-4">
+          <app-input-container [showTip]="false" label="Data de Entrada">
+            <input type="text" class="form-control form-control-sm" formControlName="dataEntrada">
+          </app-input-container>
+        </div>
+        <div class="col-md-4">
+          <app-input-container [showTip]="false" label="Data de Modificação">
+            <input type="text" class="form-control form-control-sm" formControlName="dataModificacao">
+          </app-input-container>
+        </div>
+      </div>
       <div class="row">
-        <div class="form-group col-md-4">
+        <div class="col-md-4">
           <app-input-container [showTip]="false" label="Assunto">
             <select class="form-control form-control-sm custom-select" formControlName="assunto">
               <option>IPTU</option>
@@ -95,7 +106,7 @@
             </select>
           </app-input-container>
         </div>
-        <div class="form-group col-4">
+        <div class="col-4">
           <app-input-container [showTip]="false" label="Problema">
             <select class="form-control form-control-sm custom-select" formControlName="problema">
               <option>BAIXA DE DÉBITO</option>
@@ -105,9 +116,9 @@
           </app-input-container>
         </div>
   
-        <div *ngIf="editar" class="col">
+        <div *ngIf="!new" class="col">
           <div class="row">
-            <div class="form-group col">
+            <div class="col">
               <app-input-container [showTip]="false" label="Situação">
                 <select class="form-control form-control-sm custom-select" formControlName="situacao">
                   <option>Em Análise</option>
@@ -122,7 +133,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="form-group col">
+        <div class="col">
           <app-input-container [showTip]="false" label="Observações">
             <textarea class="form-control" name="obs" id="" cols="30" rows="10" formControlName="obs"></textarea>
           </app-input-container>
@@ -133,7 +144,7 @@
     <div class="row">
       <div class="ml-auto mr-3">
         <button class="btn btn-outline-success">Cancelar</button>
-        <button class="btn btn-success" [disabled]="formulario.invalid" (click)="saveForm()">Salvar</button>
+        <button class="btn btn-success" [disabled]="formulario.invalid" (click)="insertProcesso()">Salvar</button>
       </div>
     </div>
   </div>

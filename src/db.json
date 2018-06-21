@@ -1,0 +1,68 @@
+{
+  "processos": [
+    {
+      "name": "adriano",
+      "cpf": "111.111.111-11",
+      "email": "adriano",
+      "foneFixo": "",
+      "celular": "adriano",
+      "endereco": {
+        "rua": "adriano",
+        "numero": "123",
+        "complemento": "adriano",
+        "cep": "adriano",
+        "bairro": "adriano",
+        "cidade": "adriano",
+        "pais": "adriano"
+      },
+      "processo": {
+        "assunto": "IPTU",
+        "problema": "BAIXA DE DÉBITO",
+        "situacao": "Em Análise",
+        "protocolo": "20180343233",
+        "dataEntrada": "12/03/2018",
+        "dataModificacao": "",
+        "obs": ""
+      },
+      "id": 1
+    },
+    {
+      "name": "Adriano 2",
+      "cpf": "123.456.789-78",
+      "email": "Adriano 2",
+      "foneFixo": "",
+      "celular": "Adriano 2",
+      "endereco": {
+        "rua": "Adriano 2",
+        "numero": "Adriano 2",
+        "complemento": "Adriano 2",
+        "cep": "Adriano 2",
+        "bairro": "Adriano 2",
+        "cidade": "Adriano 2",
+        "pais": "Adriano 2"
+      },
+      "processo": {
+        "assunto": "ITBI",
+        "problema": "CERTIDÃO DE DÉBITO",
+        "situacao": "Em Análise",
+        "protocolo": "20180653375",
+        "dataEntrada": "21/06/2018",
+        "dataModificacao": "",
+        "obs": "Adriano 2"
+      },
+      "id": 2
+    }
+  ],
+  "servidores": [
+    {
+      "name": "Adriano",
+      "cpf": "111.111.111-11",
+      "matricula": "adriano123",
+      "login": "adriano",
+      "senha": "adriano",
+      "perfil": "Administrador",
+      "cargo": "Diretor",
+      "id": 1
+    }
+  ]
+}

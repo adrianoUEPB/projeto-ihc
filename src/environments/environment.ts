@@ -12,7 +12,7 @@ export const environment = {
     projectId: "projeto-e74ec",
     storageBucket: "projeto-e74ec.appspot.com",
     messagingSenderId: "700740785047"
-
-  }
+  },
+  jsonApi: "http://localhost:3000"
 
 };

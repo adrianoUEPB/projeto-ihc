@@ -1,6 +1,8 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
@@ -18,7 +20,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './security/login/login.component';
 import { ProcessosComponent } from './processos/processos.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { FormNovoComponent } from './processos/form-novo/form-novo.component';
 import { ListarProcessosComponent } from './processos/listar-processos/listar-processos.component';
 import { FormPesquisarComponent } from './processos/form-pesquisar/form-pesquisar.component';
@@ -58,6 +59,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     ReactiveFormsModule,
     SharedModule,
+    HttpClientModule,
     RouterModule.forRoot(ROUTES),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
@@ -65,6 +67,7 @@ import { SharedModule } from './shared/shared.module';
   providers: [
     ServidorService,
     ProcessosService,
+    // AngularFireDatabase
   ],
   bootstrap: [AppComponent]
 })

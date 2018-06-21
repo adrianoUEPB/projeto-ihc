@@ -1,32 +1,36 @@
+import { Processo } from './../models/processo.model';
 import { Injectable, OnInit } from '@angular/core';
-import { Processo } from '../models/processo.model';
+import { HttpClient } from '@angular/common/http';
 
-import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+import { APP_API } from '../app.api';
+import { map } from 'rxjs/operator/map';
+import { catchError } from 'rxjs/operators';
+
+
 
 
 @Injectable()
 export class ProcessosService implements OnInit {
 
-  processosObservable: Observable<Processo[]>
+  processosObservable: Observable<any[]>
 
-  constructor(private db : AngularFireDatabase) {
+  constructor(private http: HttpClient) {
     
   }
 
   ngOnInit() {
   }
 
-  getProcessos(){
-    const processo = this.db.list('processos');
-
-    console.log(processo)
+  getProcessos(): Observable<Processo[]>{
+    return this.http.get<Processo[]>(`${APP_API}/processos`)
   }
 
-  insertProcesso(processo: Processo) {
-    console.log('insertProcesso')
+  insertProcesso(processo: Processo): Observable<Processo> {
+    console.log('processo recebido')
     console.log(processo)
-    this.db.list('processos').push(processo);
+    return this.http.post<Processo>(`${APP_API}/processos`, processo);
+                                    
   }
 
   updateProcesso(processo: Processo) {

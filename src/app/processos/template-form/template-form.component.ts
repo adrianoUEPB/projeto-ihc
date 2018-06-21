@@ -2,6 +2,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { Component, OnInit, Input } from '@angular/core';
 import { ProcessosService } from '../processos.service';
 import { ValidationPath } from '@firebase/database/dist/src/core/util/Path';
+import { Processo } from '../../models/processo.model';
 
 @Component({
   selector: 'app-template-form',
@@ -11,6 +12,7 @@ import { ValidationPath } from '@firebase/database/dist/src/core/util/Path';
 export class TemplateFormComponent implements OnInit {
 
   formulario: FormGroup
+  processos: Processo[]
 
   emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
   numberPattern = /^[0-9]*$/
@@ -18,7 +20,6 @@ export class TemplateFormComponent implements OnInit {
   cpfPattern = /^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$/ || /^[0-9]{2}.[0-9]{3}.[0-9]{3}\/[0-9]{4}-[0-9]{2}$/
 
   @Input('novoForm') new?: boolean = true
-  editar: boolean = false
 
   constructor(private fb: FormBuilder,
               private processosService: ProcessosService
@@ -52,6 +53,9 @@ export class TemplateFormComponent implements OnInit {
         assunto:  this.fb.control('IPTU', [Validators.required]),
         problema: this.fb.control('BAIXA DE DÉBITO', [Validators.required]),
         situacao: this.fb.control('Em Análise', [Validators.required]),
+        protocolo: this.fb.control(this.gerarProtocolo()),
+        dataEntrada: this.fb.control(this.dataAtual()),
+        dataModificacao: this.fb.control(''),
         obs: this.fb.control('')
       })
     })
@@ -59,7 +63,6 @@ export class TemplateFormComponent implements OnInit {
   }
 
   createUpdateForm() {
-    this.editar = true
     this.formulario = this.fb.group({
       name: ['Update', Validators.required],
       cpf: ['Update', Validators.required],
@@ -89,16 +92,39 @@ export class TemplateFormComponent implements OnInit {
       console.log(value)
   }
 
-  saveForm() {
-    // console.log(this.formulario.value)
-    this.processosService.insertProcesso(this.formulario.value)
+
+  gerarProtocolo() {
+    var data = new Date()
+    var ano = data.getFullYear()
+    var mes = ("0" + (data.getMonth() + 1)).slice(-2)
+    var finalRandon = Math.floor((Math.random() * 100000) + 1)
+    return `${ano}${mes}${finalRandon}`
+  }
+
+  dataAtual() {
+    var data = new Date();
+    var dia = ("0" + (data.getDate())).slice(-2)
+    var mes = ("0" + (data.getMonth() + 1)).slice(-2)
+    var ano = data.getFullYear();  
+    return `${dia}/${mes}/${ano}`
+  }
+ 
+  insertProcesso() {
+    this.processosService.insertProcesso(this.formulario.value).subscribe(
+      processo => this.processos.push(processo)
+    )
   }
 
   getProcessos() {
     console.log('Chamou o getProcessos do template component')
-    
-    this.processosService.getProcessos()
+    var teste = this.processosService.getProcessos()
+      .subscribe(
+        processo => {
+          this.processos = processo
 
+          console.log(this.processos)
+        }
+      )
   }
 
 
