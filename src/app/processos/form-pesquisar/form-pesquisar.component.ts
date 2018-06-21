@@ -37,4 +37,8 @@ export class FormPesquisarComponent implements OnInit {
       })
   }
 
+  clear() {
+    this.searchForm.reset()
+  }
+
 }

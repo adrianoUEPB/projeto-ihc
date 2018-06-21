@@ -22,7 +22,7 @@
         <div class="row">
           <div class="ml-auto mr-3">
             <button class="btn btn-sm btn-outline-success" [routerLink]="['/processos']">Cancelar</button>
-            <button class="btn btn-sm btn-outline-success">Limpar</button>
+            <button class="btn btn-sm btn-outline-success" (click)="clear()" >Limpar</button>
             <button class="btn btn-sm btn-success" (click)="search()">Pesquisar</button>
           </div>
 

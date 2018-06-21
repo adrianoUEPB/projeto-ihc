@@ -2,7 +2,6 @@ import { NotificationService } from './../../shared/notification.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 import { ProcessosService } from '../processos.service';
-import { Processo } from '../../models/processo.model';
 
 @Component({
   selector: 'app-template-form',
@@ -23,7 +22,7 @@ export class TemplateFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private processosService: ProcessosService,
-              private notificationService: NotificationService
+              private notificationService: NotificationService,
   ) { }
 
   ngOnInit() {
@@ -119,7 +118,6 @@ export class TemplateFormComponent implements OnInit {
   }
 
   getProcessos() {
-    console.log('Chamou o getProcessos do template component')
     var teste = this.processosService.getProcessos()
       .subscribe(
         processo => {
