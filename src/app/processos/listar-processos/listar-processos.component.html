@@ -3,38 +3,6 @@
     <div class="text-center mb-5">
       <h1><i class="fa fa-file-text-o" aria-hidden="true"></i> Todos os processos</h1>
     </div>
-    <div class="row p-3">
-      <div class="ml-auto">
-          <i class="fa fa-filter clique" (click)="showFilter()" aria-hidden="true"> Ativar Filtro</i>
-      </div>
-    </div>
-    
-    <div *ngIf="filtrar">
-      <form [formGroup]="formFilter">
-        <div class="form-group">
-          <div class="col-md-10">
-            <div class="row">
-
-              <div class="col-md-6 pl-0">
-                <label>Termo de Busca</label> 
-                <input type="text" class="form-control form-control-sm">
-              </div>
-              <div class="col-md-4">
-                <label>Buscar por:</label> 
-                <select class="form-control form-control-sm custom-select" id="">
-                  <option value="">Contribuinte</option>
-                  <option value="">CPF/CNPJ</option>
-                  <option value="">Assunto</option>
-                  <option value="">Situação</option>
-                  <option value="">Data</option>
-                </select>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
     
     <table class="table table-hover table-sm">
       <thead>
@@ -48,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let processo of processos" (click)="openModal(processo)" data-toggle="modal" data-processo=processo data-target="#modalVisualizar">
+        <tr *ngFor="let processo of processos" data-toggle="modal" data-processo=processo data-target="#modalVisualizar">
           <td>{{ processo.processo.protocolo }}</td>
           <td>{{ processo.name }}</td>
           <td>{{ processo.cpf }}</td>

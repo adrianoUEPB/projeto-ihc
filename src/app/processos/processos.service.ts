@@ -1,3 +1,4 @@
+import { NotificationService } from './../shared/notification.service';
 import { Servidor } from './../models/servidor.model';
 import { Processo } from './../models/processo.model';
 import { Injectable, OnInit } from '@angular/core';
@@ -6,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { APP_API } from '../app.api';
 import { map } from 'rxjs/operator/map';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { LoginService } from '../security/login/login.service';
 
 
@@ -22,7 +23,8 @@ export class ProcessosService implements OnInit {
   processosObservable: Observable<any[]>
 
   constructor(private http: HttpClient,
-              private loginService: LoginService) {
+              private loginService: LoginService,
+              private notificationService: NotificationService) {
     
   }
   
@@ -69,8 +71,15 @@ export class ProcessosService implements OnInit {
     
   }
 
+  processoById(id: number): Observable<Processo> {
+    return this.http.get<Processo>(`${APP_API}/processos/${id}`)
+  }
+
   updateProcesso(processo: Processo) {
-    // this.processoList.update(processo.$key, processo)
+    this.http.put(`${APP_API}/processos/${processo.id}`, processo)
+      .pipe(
+        tap(processo => this.notificationService.notify(`Processo de id ${processo} atualizado`))
+      )
   }
 
   deleteProcesso($key : string) {

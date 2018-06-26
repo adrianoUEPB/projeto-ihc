@@ -13,7 +13,6 @@ import { Router } from '@angular/router';
 export class ListarProcessosComponent implements OnInit {
 
   formFilter: FormGroup
-  filtrar: boolean = false;
 
   processos: any[]
 
@@ -26,10 +25,6 @@ export class ListarProcessosComponent implements OnInit {
     this.getProcessos()
   }
   
-  showFilter() {
-    (this.filtrar?this.filtrar = false: this.filtrar = true);
-  }
-
 
   getProcessos() {
     console.log('Chamou o getProcessos do template component')
@@ -39,10 +34,6 @@ export class ListarProcessosComponent implements OnInit {
           this.processos = processos
         }
       )
-  }
-
-  openModal(processo) {
-    this.processosService.openModal(processo)    
   }
 
 }

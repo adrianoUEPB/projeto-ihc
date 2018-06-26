@@ -135,46 +135,6 @@
       "perfil": "Consulta",
       "cargo": "Diretor",
       "id": 13
-    },
-    {
-      "name": "Comum",
-      "cpf": "123.123.123-23",
-      "matricula": "1234",
-      "login": "comum",
-      "senha": "comum",
-      "perfil": "Comum",
-      "cargo": "Diretor",
-      "id": 14
-    },
-    {
-      "name": "Adriano",
-      "cpf": "168.177.123-32",
-      "matricula": "1234",
-      "login": "adriano",
-      "senha": "adriano",
-      "perfil": "Administrador",
-      "cargo": "Diretor",
-      "id": 15
-    },
-    {
-      "name": "Adriano",
-      "cpf": "123.123.123-23",
-      "matricula": "134",
-      "login": "adriano",
-      "senha": "adriano",
-      "perfil": "Administrador",
-      "cargo": "Diretor",
-      "id": 16
-    },
-    {
-      "name": "teste",
-      "cpf": "123.234.234-23",
-      "matricula": "1234",
-      "login": "teste",
-      "senha": "teste",
-      "perfil": "Administrador",
-      "cargo": "Diretor",
-      "id": 17
     }
   ]
 }

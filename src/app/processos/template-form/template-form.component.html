@@ -1,9 +1,8 @@
-<app-snack></app-snack>
 <form [formGroup]="formulario">
   <div class="col-md-12">
     <div class="row">
       <div class="col-md-8">
-        <app-input-container errorMessage="Campo obrigatório e minímo de 5 caracteres" label="Nome contribuinte">
+        <app-input-container errorMessage="Campo obrigatório" label="Nome contribuinte">
           <input class="form-control form-control-sm" formControlName="name">
         </app-input-container>
       </div>
@@ -145,7 +144,8 @@
     <div class="row">
       <div class="ml-auto mr-3">
         <button class="btn btn-outline-success" [routerLink]="['/processos']">Cancelar</button>
-        <button class="btn btn-success" [disabled]="formulario.invalid" (click)="insertProcesso()">Salvar</button>
+        <button class="btn btn-success" *ngIf="new" [disabled]="formulario.invalid" (click)="insertProcesso()">Salvar</button>
+        <button class="btn btn-success" *ngIf="!new" (click)="updateProcesso()">Atualizar</button>
       </div>
     </div>
   </div>

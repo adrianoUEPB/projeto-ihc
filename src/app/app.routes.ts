@@ -20,7 +20,7 @@ export const ROUTES: Routes = [
   { path: 'processos/novo', component: FormNovoComponent },
   { path: 'processos/lista', component: ListarProcessosComponent },
   { path: 'processos/pesquisar', component: FormPesquisarComponent },
-  { path: 'processos/editar', component: DetalheComponent },
+  { path: 'processos/:id', component: DetalheComponent},
   { path: 'servidor', component: ServidorComponent },
   { path: 'servidor/cadastrar', component: ServidorCadastroComponent },
   { path: 'servidor/listar', component: ServidorListaComponent },

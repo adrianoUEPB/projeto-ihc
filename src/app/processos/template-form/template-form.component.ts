@@ -2,6 +2,8 @@ import { NotificationService } from './../../shared/notification.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 import { ProcessosService } from '../processos.service';
+import { Processo } from '../../models/processo.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-template-form',
@@ -12,6 +14,7 @@ export class TemplateFormComponent implements OnInit {
 
   formulario: FormGroup
   processos: any[]
+  processo: Processo
 
   emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
   numberPattern = /^[0-9]*$/
@@ -23,6 +26,7 @@ export class TemplateFormComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private processosService: ProcessosService,
               private notificationService: NotificationService,
+              private route : ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -63,29 +67,39 @@ export class TemplateFormComponent implements OnInit {
   }
 
   createUpdateForm() {
-    this.formulario = this.fb.group({
-      name: ['Update', Validators.required],
-      cpf: ['Update', Validators.required],
-      email: ['Update', Validators.required],
-      foneFixo: ['Update'],
-      celular: ['Update', Validators.required],
-      endereco: this.fb.group({
-        rua: ['Update', Validators.required],
-        numero: ['Update', Validators.required],
-        complemento: ['Update'],
-        cep: ['Update', Validators.required],
-        bairro: ['Update', Validators.required],
-        cidade: ['Update', Validators.required],
-        pais: ['Update', Validators.required]
-      }),
-      processo: this.fb.group({
-        assunto: ['IPTU', Validators.required],
-        problema: ['ANÁLISE DE DÉBITO', Validators.required],
-        situacao: ['Em Análise', Validators.required],
-        obs: ['Update']
+    this.processosService.processoById(this.route.snapshot.params['id'])
+      .subscribe(processo => {
+        var processoEdit = processo
+        console.log('processo service')
+        console.log(processoEdit)
+        this.formulario = new FormGroup({
+          name: this.fb.control(processoEdit.name ,[Validators.required]),
+          cpf: this.fb.control(processoEdit.cpf, [Validators.required]),
+          email: this.fb.control(processoEdit.email, [Validators.required]),
+          foneFixo: this.fb.control(processoEdit.foneFixo),
+          celular: this.fb.control(processoEdit.celular, [Validators.required]),
+          endereco: this.fb.group({
+            rua: this.fb.control(processoEdit.endereco.rua, [Validators.required]),
+            numero: this.fb.control(processoEdit.endereco.numero, [Validators.required]),
+            complemento: this.fb.control(processoEdit.endereco.complemento),
+            cep: this.fb.control(processoEdit.endereco.cep, [Validators.required]),
+            bairro: this.fb.control(processoEdit.endereco.bairro, [Validators.required]),
+            cidade: this.fb.control(processoEdit.endereco.cidade, [Validators.required]),
+            pais: this.fb.control(processoEdit.endereco.pais, [Validators.required])
+          }),
+          processo: this.fb.group({
+            assunto: this.fb.control(processoEdit.processo .assunto, [Validators.required]),
+            problema: this.fb.control(processoEdit.processo.problema,[Validators.required]),
+            situacao: this.fb.control(processoEdit.processo.situacao,[Validators.required]),
+            protocolo: this.fb.control(processoEdit.processo.protocolo,[Validators.required]),
+            dataEntrada: this.fb.control(processoEdit.processo.dataEntrada,[Validators.required]),
+            dataModificacao: this.fb.control(processoEdit.processo.dataModificacao,[Validators.required]),
+            obs: this.fb.control(processoEdit.processo.obs)
+          })
+        })
       })
-    });
   }
+
 
   mascaCpfCnpj(value) {
     if(value == this.numberPattern)
@@ -115,6 +129,10 @@ export class TemplateFormComponent implements OnInit {
       processo => this.processos.push(processo)
     )
     this.notificationService.notify(`Processo adicionado com sucesso! Protocolo: ${dados.processo.protocolo}`)
+  }
+
+  updateProcesso() {
+    this.processosService.updateProcesso(this.formulario.value)
   }
 
   getProcessos() {

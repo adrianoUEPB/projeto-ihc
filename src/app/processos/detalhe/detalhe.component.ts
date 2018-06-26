@@ -1,4 +1,6 @@
+import { ProcessosService } from './../processos.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-detalhe',
@@ -10,6 +12,7 @@ export class DetalheComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }
