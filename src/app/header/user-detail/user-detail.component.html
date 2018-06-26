@@ -1,0 +1,8 @@
+<li routerLinkActive="active" class="nav-item">
+  <span *ngIf="isLoggedIn(); else notLoggedIn">
+    Olá, {{ servidor().name }} | <a class="nav-link" (click)="logout()">Sair</a>
+  </span>
+  <ng-template #notLoggedIn>
+    <a class="nav-link" (click)="login()">Acesso Servidor</a>
+  </ng-template>
+</li>

@@ -21,7 +21,12 @@ export class ProcessosService implements OnInit {
   administrador: boolean = false
   processosObservable: Observable<any[]>
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private loginService: LoginService) {
+    
+  }
+  
+  ngOnInit() {
     
   }
 
@@ -40,9 +45,6 @@ export class ProcessosService implements OnInit {
     }
   }
 
-  ngOnInit() {
-    
-  }
 
   getProcessos(): Observable<Processo[]>{
     return this.http.get<Processo[]>(`${APP_API}/processos`)
@@ -57,6 +59,14 @@ export class ProcessosService implements OnInit {
 
   searchProcessos(termo: string, busca: string): Observable<Processo[]> {
     return this.http.get<Processo[]>(`${APP_API}/processos?processo${busca}=${termo}`)
+  }
+
+  isLoggedIn(): boolean {
+    return this.loginService.isLoggedIn()
+  }
+
+  openModal(content) {
+    
   }
 
   updateProcesso(processo: Processo) {

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  logado: boolean = false
+
   urlImg: string = '../../assets/img/logo-cg.png'
 
   constructor() { }

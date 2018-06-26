@@ -18,4 +18,8 @@ export class ServidorComponent implements OnInit {
     this.adminstrador = this.servidorService.administrador
   }
 
+  isLoggedIn(): boolean {
+    return this.servidorService.isLoggedIn()
+  }
+
 }

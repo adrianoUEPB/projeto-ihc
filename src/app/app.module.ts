@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { environment } from '../environments/environment'
 
 import { ProcessosService } from './processos/processos.service';
@@ -14,8 +13,6 @@ import { ServidorService } from './servidor/servidor.service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './security/login/login.component';
@@ -34,13 +31,12 @@ import { TemplateServidorFormComponent } from './servidor/template-servidor-form
 import { ROUTES } from './app.routes';
 import { SharedModule } from './shared/shared.module';
 import { LoginService } from './security/login/login.service';
+import { UserDetailComponent } from './header/user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
-    DashboardComponent,
     SobreComponent,
     ProcessosComponent,
     HomeComponent,
@@ -56,6 +52,7 @@ import { LoginService } from './security/login/login.service';
     TemplateFormComponent,
     DetalheComponent,
     TemplateServidorFormComponent,
+    UserDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,8 +66,7 @@ import { LoginService } from './security/login/login.service';
   providers: [
     ServidorService,
     ProcessosService,
-    LoginService
-    // AngularFireDatabase
+    LoginService,
   ],
   bootstrap: [AppComponent]
 })

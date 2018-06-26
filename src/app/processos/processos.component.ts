@@ -20,4 +20,8 @@ export class ProcessosComponent implements OnInit {
     this.leitura = this.processoService.leitura
   }
 
+  isLoggedIn(): boolean {
+    return this.processoService.isLoggedIn()
+  }
+
 }

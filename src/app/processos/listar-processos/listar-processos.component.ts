@@ -41,9 +41,8 @@ export class ListarProcessosComponent implements OnInit {
       )
   }
 
-  showItem(processo) {
-    console.log(processo)
-    // this.router.navigate(['/processos/editar']);
+  openModal(processo) {
+    this.processosService.openModal(processo)    
   }
 
 }
